@@ -88,10 +88,10 @@ void loop(){
         double posServoY = pidY.process(dataY);
 
         
-        int maxX = 151;  //15 graus 161
-        int minX = 131;  //-15 graus 121
-        int maxY = 158;  //15 graus 168
-        int minY = 138;  // -15 graus 128
+        int maxX = 161;  //15 graus 161
+        int minX = 121;  //-15 graus 121
+        int maxY = 168;  //15 graus 168
+        int minY = 128;  // -15 graus 128
 
         posServoX = map(posServoX, -setPoint,setPoint,minX, maxX);
         posServoY = map(posServoY, -setPoint,setPoint,minY, maxY);
@@ -102,10 +102,10 @@ void loop(){
         if(posServoY < minY){posServoY = minY;}
 
         // Serial.println(pidX.pidString() +" | pos: " + (String)posServo);
-        // Serial.print("posX: ");
-        // Serial.print(posServoX);
-        // Serial.print(" | posY: ");
-        // Serial.println(posServoY);
+        Serial.print("posX: ");
+        Serial.print(posServoX);
+        Serial.print(" | posY: ");
+        Serial.println(posServoY);
 
         sY.write(posServoY);
         sX.write(posServoX);
